@@ -1,0 +1,8 @@
+[user]
+	email = dt@danieltull.co.uk
+	name = Daniel Tull
+[core]
+	editor = mate -w
+	autocrlf = input
+	excludesfile = ~/.gitignore
+	quotepath = false
