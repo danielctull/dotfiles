@@ -1,0 +1,32 @@
+usage() {
+	echo "usage: git dctsubmodule remove [--hard] submodulepath"
+}
+
+if [[ ! -f .gitmodules ]]; then 
+	echo "git submodules not in use"
+	exit
+fi
+
+if [[ $1 != "remove" || $2 == "--help" || $2 == "" ]]; then
+	usage
+	exit
+fi
+
+submodule=$2
+hard=false
+
+if [[ $2 == "--hard" ]]; then
+	submodule=$3
+	hard=true
+fi
+
+submodule=$( echo $submodule | sed 's/\/$//g')
+
+git rm --cached $submodule
+git config --remove-section "submodule.$submodule"
+git config -f .gitmodules --remove-section "submodule.$submodule"
+
+if [[ $hard == true ]]; then
+	echo "rm -rf '$submodule'"
+	rm -rf $submodule
+fi
