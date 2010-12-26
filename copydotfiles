@@ -1,0 +1,45 @@
+#!/bin/bash
+
+ignored=(
+	copydotfiles
+)
+
+ignored() {
+	
+	for i in ${ignored[@]}
+	do
+		#echo $i
+		if [ $i == $1 ]; then
+			return 0
+		fi
+	done
+
+	return 1
+}
+
+linkdotfile() {
+	dotfile="$1"
+    dotfilelink="$HOME/.$dotfile"
+	
+	movetype="Copying"
+	
+	if [[ -d "$dotfilelink" ]]; then
+		movetype="Replacing"
+		rm -r "$dotfilelink"
+	fi
+	
+	if [[ -e "$dotfilelink" ]]; then
+		movetype="Replacing"
+		rm "$dotfilelink"
+	fi
+	
+	echo "$movetype .$dotfile"
+    cp -r "$dotfile" "$dotfilelink"
+}
+
+for dotfile in *
+do
+	if ! ignored $dotfile; then 
+		linkdotfile $dotfile
+	fi	
+done
