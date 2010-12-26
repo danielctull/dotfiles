@@ -1,0 +1,30 @@
+#!/bin/bash
+codebranch="develop"
+docbranch="gh-pages"
+projectname=$(pwd | sed "s/^.*\///g")
+docdirectory="Documentation"
+defaultcommitmessage="Update documentation."
+
+# Switches to the codebranch
+# Generates the documentation to /tmp/gitappledoc/
+# Switches to the docbranch
+# git rm the docdirectory (to make sure stale docs are removed - 
+#     re-adding will cause an update)
+# Move the directory to docdirectory
+# Add directory to git
+# Commit with a message, but allow editing
+
+echo "Generating documentation for $projectname"
+
+git checkout $codebranch
+mkdir -p -v /tmp/gitappledoc/
+appledoc --templates ~/.appledoc -p $projectname -o /tmp/gitappledoc/ "$@" ./
+
+git checkout $docbranch
+
+git rm -r $docdirectory
+
+mv -v /tmp/gitappledoc/html "$docdirectory"
+rm -r /tmp/gitappledoc/
+git add -f "$docdirectory"
+git commit -m $defaultcommitmessage -e
