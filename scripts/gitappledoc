@@ -26,5 +26,5 @@ git rm -r $docdirectory
 
 mv -v /tmp/gitappledoc/html "$docdirectory"
 rm -r /tmp/gitappledoc/
-git add -f "$docdirectory"
-git commit -m $defaultcommitmessage -e
+git add -f -v "$docdirectory"
+git commit -e -m "$defaultcommitmessage"
