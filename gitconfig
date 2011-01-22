@@ -6,3 +6,18 @@
 	autocrlf = input
 	excludesfile = ~/.gitignore
 	quotepath = false
+[color]
+	status = auto
+	diff = auto
+	interactive = auto
+	branch = auto
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = yellow 
+	remote = cyan
+[color "diff"]
+	meta = white
+	frag = magenta
+	old = red bold
+	new = green bold
