@@ -11,7 +11,7 @@
 	<key>--create-html</key>
 	<true/>
 	<key>--install-docset</key>
-	<true/>
+	<false/>
 	<key>--keep-undocumented-objects</key>
 	<false/>
 	<key>--keep-undocumented-members</key>
@@ -26,8 +26,6 @@
 	<string>$COMPANYID.$PROJECT</string>
 	<key>--docset-bundle-name</key>
 	<string>$PROJECT</string>
-	<key>--output</key>
-	<string>~/Desktop</string>
 	<key>--ignore</key>
 	<array>
 		<string>.git</string>

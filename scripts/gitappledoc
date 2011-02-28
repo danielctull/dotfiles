@@ -34,9 +34,10 @@ fi
 
 # make sure stale docs are removed - re-adding will cause an update
 git rm -r $docdirectory
+mkdir $docdirectory
 
 # move the generated docs to docdirectory and cleanup
-mv -v /tmp/gitappledoc/html "$docdirectory"
+mv -v /tmp/gitappledoc/html/* "$docdirectory"
 rm -r /tmp/gitappledoc/
 
 # add directory and commit with default message, allowing editing
