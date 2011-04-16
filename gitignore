@@ -24,3 +24,6 @@ build/
 .hg
 .svn
 CVS
+
+# Jekyll builds
+_site/
