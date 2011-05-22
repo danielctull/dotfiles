@@ -27,3 +27,5 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[alias]
+	graphlog = log --oneline --graph --decorate --all
