@@ -32,3 +32,5 @@
 	pullmerge = !sh -c 'CURRENT=$(git name-rev --name-only head) && git checkout $1 && git pull && git merge $CURRENT' -
 	pushcheckout = !sh -c 'CURRENT=$(git name-rev --name-only head) && git push && git checkout $1 && git merge $CURRENT' -
 	consolidate = !sh -c 'CURRENT=$(git name-rev --name-only head) && git pullmerge $1 && git pushcheckout $CURRENT' -
+	today = !sh -c 'THEUSER=$(git config --get user.email) && git log --committer=$THEUSER --pretty=format:\"- %s\" --since=yesterday --reverse' - 
+	
