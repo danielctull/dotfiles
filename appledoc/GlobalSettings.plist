@@ -41,5 +41,7 @@
 		<string>DTNibHook</string>
 		<string>DCTCoreData</string>
 	</array>
+	<key>--repeat-first-par</key>
+	<false/>
 </dict>
 </plist>
