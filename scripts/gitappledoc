@@ -1,5 +1,5 @@
 #!/bin/bash
-codebranch="develop"
+codebranch="master"
 docbranch="gh-pages"
 projectname=$(pwd | sed "s/^.*\///g")
 docdirectory="Documentation"
