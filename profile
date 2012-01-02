@@ -1,5 +1,6 @@
 export EDITOR='mate -w'
 PATH=$PATH:$HOME/bin:$HOME/.scripts:$HOME/.git-scripts:$HOME/Dropbox/.gitbox
+PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin
 export PATH
 
 alias gitbox='gitbox.sh'
