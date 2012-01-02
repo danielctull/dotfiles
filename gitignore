@@ -15,6 +15,7 @@ xcuserdata/
 
 # Generated files
 VersionX-revision.h
+InfoPlist.h
 
 # build products
 build/
