@@ -6,12 +6,6 @@
 	<string>Daniel Tull</string>
 	<key>--company-id</key>
 	<string>uk.co.danieltull</string>
-	<key>--create-docset</key>
-	<false/>
-	<key>--create-html</key>
-	<true/>
-	<key>--install-docset</key>
-	<false/>
 	<key>--keep-undocumented-objects</key>
 	<false/>
 	<key>--keep-undocumented-members</key>
@@ -22,10 +16,6 @@
 	<true/>
 	<key>--prefix-merged-sections</key>
 	<false/>
-	<key>--docset-bundle-id</key>
-	<string>$COMPANYID.$PROJECT</string>
-	<key>--docset-bundle-name</key>
-	<string>$PROJECT</string>
 	<key>--ignore</key>
 	<array>
 		<string>.git</string>
@@ -35,11 +25,6 @@
 		<string>$PROJECT Project</string>
 		<string>Vendors</string>
 		<string>*.m</string>
-		<string>DCTFoundation</string>
-		<string>DCTUIKit</string>
-		<string>DCTConnectionController</string>
-		<string>DTNibHook</string>
-		<string>DCTCoreData</string>
 	</array>
 	<key>--repeat-first-par</key>
 	<false/>
