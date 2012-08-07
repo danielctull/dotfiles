@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# From an original script by Daniel Tull
+# Somewhat mangled by Sam Deane
+
+# Run this script from the root of your project.
+# It makes a temporary directory and generates appledoc documentation for your
+# project in that directory.
+# It then makes a local clone of your documentation branch (called gh-pages, by default)
+# copies the generated appledoc html into a folder in the branch (called Documentation by default)
+# commits the new documentation and pushes it back to the project repo.
+#
+# Note that it doesn't push from the project repo, so the new documentation doesn't leave
+# your machine - you need to manually 'git push origin gh-pages:gh-pages' (or whatever) to
+# actually publish the gh-pages branch to the wider world.
+
+# This script assumes:
+# - the name of the root folder is the name of the project
+# - your appledoc templates are in "$SCRIPTROOT/appledoc"
+# - you have a GlobalSettings.plist file in your appledoc templates folder
+# - you've set values in GlobalSettings.plist for --project-company, --company-id
+
+git=`xcrun --find git`
+docsetutil=`xcrun --find docsetutil`
+originaldirectory=`git rev-parse --show-toplevel`
+codebranch=`$git rev-parse --abbrev-ref HEAD`
+docbranch="gh-pages"
+projectname=`basename $PWD`
+docdirectory="documentation"
+initialdefaultcommitmessage="Initial documentation"
+updatedefaultcommitmessage="Update documentation"
+defaultcommitmessage=$updatedefaultcommitmessage
+tempdir=/tmp/gendoc
+
+# if we're on the documentation branch, something's gone wrong
+if [[ "$codebranch" == "gh-pages" ]]
+then
+    echo "You seem to be on the gh-pages branch. Checkout a code branch instead."
+    exit 1
+fi
+
+echo "Generating documentation for $projectname"
+
+# make a clean temp directory
+rm -rf "$tempdir"
+mkdir -p -v "$tempdir"
+
+
+# generate docset and html, install docset in xcode, create atom feed and downloadable package
+appledoc \
+--keep-intermediate-files \
+--create-html \
+--create-docset \
+--install-docset \
+--publish-docset \
+--docsetutil-path "$docsetutil" \
+--docset-atom-filename "docset.atom" \
+--docset-feed-url "http://danielctull.github.com/$projectname/$docdirectory/%DOCSETATOMFILENAME" \
+--docset-package-url "http://danielctull.github.com/$projectname/$docdirectory/%DOCSETPACKAGEFILENAME" \
+--docset-fallback-url "http://danielctull.github.com/projectname/$docdirectory/" \
+--project-name $projectname \
+-o "$tempdir" "$@" ./
+
+# clone doc branch of current repo into temporary location
+$git clone $originaldirectory "$tempdir/branch"
+
+if $git show-ref --tags --quiet --verify -- "refs/heads/$docbranch"
+then
+	cd "$tempdir/branch"
+	echo "Checking out $docbranch branch"
+	$git checkout $docbranch
+else
+	cd "$tempdir/branch"
+	echo "Creating $docbranch branch"
+	defaultcommitmessage=$initialdefaultcommitmessage
+	$git symbolic-ref HEAD "refs/heads/$docbranch"
+	rm .git/index
+	$git clean -fdx
+fi
+
+# make sure stale docs are removed - re-adding will cause an update
+$git rm -rf "$docdirectory" --quiet
+
+# move the generated docs to docdirectory and cleanup
+mkdir "$docdirectory"
+mv -v ../html/* "$docdirectory"
+mv -v ../publish/* "$docdirectory"
+
+# add directory and commit with default message, allowing editing
+$git add -f -v "$docdirectory"
+$git commit -e -m "$defaultcommitmessage"
+
+# push changes back to our repo
+$git push origin $docbranch
+
+# remove temporary directory
+rm -rf "$tempdir"
+
+echo "Feed URL is at http://danielctull.github.com/$projectname/$docdirectory/docset.atom"
