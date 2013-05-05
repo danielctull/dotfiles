@@ -53,7 +53,6 @@ appledoc \
 --create-docset \
 --install-docset \
 --publish-docset \
---docsetutil-path "$docsetutil" \
 --docset-atom-filename "docset.atom" \
 --docset-feed-url "http://danielctull.github.com/$projectname/$docdirectory/%DOCSETATOMFILENAME" \
 --docset-package-url "http://danielctull.github.com/$projectname/$docdirectory/%DOCSETPACKAGEFILENAME" \
