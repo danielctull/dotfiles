@@ -1,0 +1,6 @@
+from="master"
+if [[ $1 != "" ]]; then
+	from=$1
+fi
+
+git log $from..HEAD --merges --pretty=format:"* %s" --reverse | grep -v "$Merge branch"
