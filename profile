@@ -1,5 +1,7 @@
 export EDITOR='mate -w'
-PATH=$PATH:$HOME/bin:$HOME/.scripts:$HOME/.git-scripts:$HOME/Dropbox/.gitbox
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:$HOME/.scripts
+PATH=$PATH:$HOME/.git-scripts
 PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin
 export PATH
 
