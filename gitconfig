@@ -1,6 +1,7 @@
 [user]
 	email = dt@danieltull.co.uk
 	name = Daniel Tull
+	signingkey = AF2C4CB1
 [core]
 	editor = mate -w
 	autocrlf = input
