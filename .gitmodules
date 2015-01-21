@@ -4,3 +4,6 @@
 [submodule "git-scripts/git-completion"]
 	path = git-scripts/git-completion
 	url = git://gist.github.com/946648.git
+[submodule "git-scripts/gitinspector"]
+	path = git-scripts/gitinspector
+	url = git://github.com/danielctull-forks/gitinspector.git

@@ -1,0 +1,1 @@
+python ~/.git-scripts/gitinspector/gitinspector/gitinspector.py "$@"
