@@ -1,0 +1,22 @@
+#!/bin/bash
+# commit
+# date in git form
+
+commit="$1"
+date="$2"
+temp_branch="temp-rebasing-branch"
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [[ -z "$commit" ]]; then
+    exit 0
+fi
+
+if [[ -z "$date" ]]; then
+    exit 0
+fi
+
+git checkout -b "$temp_branch" "$commit"
+GIT_COMMITTER_DATE="$date" GIT_AUTHOR_DATE="$date" git commit --amend --no-edit --date "$date"
+git checkout "$current_branch"
+git rebase  --autostash --committer-date-is-author-date "$commit" --onto "$temp_branch"
+git branch -d "$temp_branch"
