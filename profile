@@ -7,5 +7,5 @@ export PATH
 
 alias gitbox='gitbox.sh'
 
-source $HOME/.git-scripts/git-completion/git-completion.sh
+source $HOME/.git-scripts/git-completion/git-completion.bash
 PS1='\h:\W \u$(__git_ps1 " (%s)")\$ '
