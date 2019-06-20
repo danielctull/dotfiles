@@ -7,3 +7,6 @@
 [submodule "git-scripts/gitinspector"]
 	path = git-scripts/gitinspector
 	url = git://github.com/danielctull-forks/gitinspector.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = ../oh-my-zsh.git
