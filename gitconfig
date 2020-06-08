@@ -4,6 +4,8 @@
 	signingkey = AF2C4CB1
 [commit]
 	gpgsign = true
+[init]
+	templateDir = ~/.git-template
 [core]
 	editor = mate -w
 	autocrlf = input
