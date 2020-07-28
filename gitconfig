@@ -5,7 +5,7 @@
 [commit]
 	gpgsign = true
 [init]
-	templateDir = ~/.git-template
+	defaultBranch = main
 [core]
 	editor = mate -w
 	autocrlf = input

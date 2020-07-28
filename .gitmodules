@@ -10,6 +10,3 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = ../oh-my-zsh.git
-[submodule "git-template"]
-	path = git-template
-	url = git://github.com/danielctull/git-template
