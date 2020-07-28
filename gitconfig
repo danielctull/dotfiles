@@ -7,7 +7,7 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = mate -w
+	editor = cedar
 	autocrlf = input
 	excludesfile = ~/.gitignore
 	quotepath = false
