@@ -1,9 +1,6 @@
 [submodule "git-scripts/git-pulls"]
 	path = git-scripts/git-pulls
 	url = git://github.com/schacon/git-pulls.git
-[submodule "git-scripts/git-completion"]
-	path = git-scripts/git-completion
-	url = git://gist.github.com/946648.git
 [submodule "git-scripts/gitinspector"]
 	path = git-scripts/gitinspector
 	url = git://github.com/danielctull-forks/gitinspector.git
