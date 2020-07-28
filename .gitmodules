@@ -1,9 +1,6 @@
 [submodule "git-scripts/git-pulls"]
 	path = git-scripts/git-pulls
 	url = git://github.com/schacon/git-pulls.git
-[submodule "git-scripts/gitinspector"]
-	path = git-scripts/gitinspector
-	url = git://github.com/danielctull-forks/gitinspector.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/ohmyzsh/ohmyzsh.git
