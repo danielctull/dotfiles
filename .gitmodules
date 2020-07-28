@@ -9,4 +9,4 @@
 	url = git://github.com/danielctull-forks/gitinspector.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = ../oh-my-zsh.git
+	url = git://github.com/ohmyzsh/ohmyzsh.git
