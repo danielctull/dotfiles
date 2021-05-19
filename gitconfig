@@ -32,6 +32,8 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[fetch]
+	prune = true
 [alias]
 	graphlog = log --oneline --graph --decorate --all
 	today = !sh -c 'THEUSER=$(git config --get user.email) && git log --committer=$THEUSER --pretty=format:\"- %s\" --since=yesterday --reverse' -
