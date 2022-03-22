@@ -8,3 +8,6 @@ source $ZSH/oh-my-zsh.sh
 fpath=(~/.zsh/* $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -Uz compinit && compinit
+
+# mint apps
+path=(~/.mint/bin $path)
