@@ -11,5 +11,5 @@ plugins=(
     swiftpm
 )
 
-# mint apps
+# mint
 path=(~/.mint/bin $path)
