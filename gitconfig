@@ -4,6 +4,8 @@
 	signingkey = AF2C4CB1
 [commit]
 	gpgsign = true
+[tag]
+    gpgsign = true
 [init]
 	defaultBranch = main
 [core]
