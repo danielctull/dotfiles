@@ -13,3 +13,4 @@ plugins=(
 
 # mint
 path=(~/.mint/bin $path)
+path=(~/.bin $path)
