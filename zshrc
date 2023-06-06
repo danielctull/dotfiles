@@ -10,4 +10,6 @@ source $ZSH/oh-my-zsh.sh
 
 # mint
 path=(~/.mint/bin $path)
+
+# general binaries
 path=(~/.bin $path)
