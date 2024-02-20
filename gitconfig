@@ -48,6 +48,7 @@
 	trustexitcode = true
 [merge]
 	tool = Kaleidoscope
+	conflictStyle = zdiff3
 [mergetool]
 	prompt = false
 [pull]
