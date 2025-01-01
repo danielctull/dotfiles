@@ -11,7 +11,6 @@
 [core]
 	editor = cedar
 	autocrlf = input
-	excludesfile = ~/.gitignore
 	quotepath = false
 [color]
 	status = auto
