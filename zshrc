@@ -1,4 +1,8 @@
 
+# XDG
+# https://specifications.freedesktop.org/basedir-spec/latest/
+XDG_CONFIG_HOME=$HOME/.config
+
 # homebrew completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
